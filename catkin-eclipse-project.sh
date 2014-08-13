@@ -2,6 +2,8 @@
 #
 # Imports a project into Eclipse from the command line.
 #
+# Based on scritp from http://lugendal.wordpress.com/2009/07/22/eclipse-ctd-new-project-fast
+#
 # Usage: eclipse-import.sh [ -s path-to-source-dir ] [ -p project-name ] [ -i ]
 #
 # Just simply pass the directory of the source code you want to import to Eclipse.
