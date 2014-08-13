@@ -10,6 +10,8 @@
 # This script will ask you what name you want to give to the project if you don't 
 # specify anything in the command line.
 #
+# -i will import the new project into eclipse
+#
 # Dependencies: zenity
 #
 # BUGS: 2009.07.22: Eclipse cannot be running while during the operation of this script.
@@ -18,7 +20,15 @@
  
 ECLIPSE_PATH=eclipse
 WORKSPACES_DIR=~/workspace
-TEMPLATES_DIR=~/git/ros_eclipse_project_generator    # This contains the template .project and .cproject files.
+
+# Find script location following all links
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+TEMPLATES_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" # This contains the template .project and .cproject files.
  
 TEMP_FILE=/tmp/asdf1234edd.txt
  
