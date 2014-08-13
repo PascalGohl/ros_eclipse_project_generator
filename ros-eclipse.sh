@@ -2,13 +2,13 @@
 #
 # Imports a project into Eclipse from the command line.
 #
-# Usage: eclipse-import.sh [ -s path-to-source-dir ] [ -w path-to-workspace-dir ] [ -p project-name ]
+# Usage: eclipse-import.sh [ -s path-to-source-dir ] [ -p project-name ] [ -i ]
 #
 # Just simply pass the directory of the source code you want to import to Eclipse.
 # If you don't pass anything then the current working directory is imported.
 #
-# This script will ask you which workspace you want to use and what name you want
-# to give to the project if you don't specify anything in the command line.
+# This script will ask you what name you want to give to the project if you don't 
+# specify anything in the command line.
 #
 # Dependencies: zenity
 #
