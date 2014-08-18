@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Imports a project into Eclipse from the command line.
 #
