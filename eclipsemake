@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source /opt/ros/indigo/setup.bash
+make "$@" VERBOSE=1 -j8
