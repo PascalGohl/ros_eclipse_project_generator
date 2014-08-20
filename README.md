@@ -21,10 +21,13 @@ catkin-eclipse-project -i
 Command line options
 =
 `-i`
+
  imports the package to eclipse (using ~/workspace as eclipse workspace)
  
-`-p`
+`-p project_name`
+
  sets the project name, otherwise the current folder name is proposed
  
-`-s`
+`-s path`
+
  sets the project source directory, otherwise the current directory is taken
