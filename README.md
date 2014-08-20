@@ -22,7 +22,9 @@ Command line options
 =
 `-i`
  imports the package to eclipse (using ~/workspace as eclipse workspace)
+ 
 `-p`
  sets the project name, otherwise the current folder name is proposed
+ 
 `-s`
  sets the project source directory, otherwise the current directory is taken
