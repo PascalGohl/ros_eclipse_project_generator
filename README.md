@@ -23,11 +23,24 @@ Command line options
 `-i`
 
  imports the package to eclipse (using ~/workspace as eclipse workspace)
+ ```bash
+ roscd my_package
+ catkin-eclipse-project -i
+ ```
  
 `-p project_name`
 
  sets the project name, otherwise the current folder name is proposed
+  ```bash
+ roscd my_package
+ catkin-eclipse-project -i
+ ```
  
 `-s path`
 
- sets the project source directory, otherwise the current directory is taken
+ sets the project source directory, otherwise the current directory is used
+ ```bash
+ roscd my_package
+ catkin-eclipse-project -i
+ ```
+ 
