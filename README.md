@@ -20,12 +20,11 @@ catkin-eclipse-project -i
 
 Command line options
 =
-`
  ```bash
--i      imports the package to eclipse (using ~/workspace as eclipse workspace)
+-i                   imports the package to eclipse (using ~/workspace as eclipse workspace)
 
--p project_name       sets the project name, otherwise the current folder name is proposed
+-p project_name      sets the project name, otherwise the current folder name is proposed
 
--s path        sets the project source directory, otherwise the current directory is used
+-s path              sets the project source directory, otherwise the current directory is used
  ```
  
