@@ -21,7 +21,8 @@
 #
  
 ECLIPSE_PATH=eclipse
-WORKSPACES_DIR=~/workspace
+CATKIN_WORKSPACES_DIR=~/catkin_ws
+ECLIPSE_WORKSPACES_DIR=~/workspace
 
 # Find script location following all links
 SOURCE="${BASH_SOURCE[0]}"
@@ -33,15 +34,6 @@ done
 TEMPLATES_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" # This contains the template .project and .cproject files.
  
 TEMP_FILE=/tmp/asdf1234edd.txt
- 
-get_script_path() {
-    cd `dirname $1` > /dev/null
-    DIR=`pwd`
-    cd - > /dev/null
-    echo $DIR
-}
- 
-THIS_DIR=`get_script_path $0`
 
 while getopts "s:p:i" flag
 do
@@ -63,11 +55,10 @@ do
 done
   
 #
-# BUG: 2009.07.22: Eclipse cannot be running when we import a project.
-# Otherwise the import gets lost.
+# Eclipse cannot be running when we import a project.
 #
 if [ $IMPORT ]; then
-  if ps ax | grep eclipse | grep -v grep | grep -v $0 > /dev/null; then
+  if ps ax | grep java.*eclipse | grep -v grep | grep -v $0 > /dev/null; then
       zenity --title='Error' --error --text="Eclipse is running! Please exit Eclipse!"
       exit 1
   fi
@@ -90,15 +81,17 @@ if [ -z $PROJ_NAME ]; then
     [ -z $PROJ_NAME ] && exit 0
 fi
  
+echo eclipse workspace = $ECLIPSE_WORKSPACES_DIR
+echo catkin workspace = $CATKIN_WORKSPACES_DIR
 echo src = $SRC_DIR
-echo ws = $WS
 echo proj_name = $PROJ_NAME
  
 cat $TEMPLATES_DIR/.project | sed -e "s/template-name/$PROJ_NAME/g" > $SRC_DIR/.project
 cat $TEMPLATES_DIR/.cproject | sed -e "s/template-name/$PROJ_NAME/g" > $SRC_DIR/.cproject
+sed -i "s|template-workspace|$CATKIN_WORKSPACES_DIR|g" $SRC_DIR/.cproject
 
 if [ $IMPORT ]; then
-  ($ECLIPSE_PATH -nosplash -data $WORKSPACES_DIR \
+  ($ECLIPSE_PATH -nosplash -data $ECLIPSE_WORKSPACES_DIR \
       -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import "$SRC_DIR" 2>&1 | tee $TEMP_FILE) | \
   zenity --progress --pulsate --auto-close --auto-kill
   OUTPUT=`cat $TEMP_FILE`
