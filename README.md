@@ -8,7 +8,7 @@ Set links to scripts:
 ```bash
 sudo ln -s ~/git/ros_eclipse_project_generator/catkin-eclipse-project.sh /bin/catkin-eclipse-project
 sudo ln -s ~/git/ros_eclipse_project_generator/eclipsemake /bin/eclipsemake
-sudo ln -s ~/git/ros_eclipse_project_generator/eclipsemake-test /bin/eclipsemake-test
+sudo ln -s ~/git/ros_eclipse_project_generator/eclipsemake-tests /bin/eclipsemake-tests
 ```
 
 Preliminary setup (global settings in eclipse)
